@@ -1,10 +1,12 @@
 package com.example.movieapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ public class EditMove extends AppCompatActivity {
 
     private EditText movieEt,descriptionEt,categoryEt,priceEt,durationEt;
     private Button btnEdit;
+    private ImageButton backBtn;
     String IDMovie;
 
 
@@ -35,6 +38,8 @@ public class EditMove extends AppCompatActivity {
         categoryEt = (EditText) findViewById(R.id.categoryEt);
         priceEt = (EditText) findViewById(R.id.priceEt);
         durationEt = (EditText) findViewById(R.id.durationEt);
+
+        backBtn = (ImageButton) findViewById(R.id.backBtn);
 
         btnEdit = (Button) findViewById(R.id.savesubmitBtn);
 
@@ -74,6 +79,8 @@ public class EditMove extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(EditMove.this, "Data updated successfuly", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(EditMove.this,ShowMoviesAdminActivity.class);
+                                startActivity(intent);
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -83,6 +90,14 @@ public class EditMove extends AppCompatActivity {
                         });
 
 
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditMove.this,ShowMoviesAdminActivity.class);
+                startActivity(intent);
             }
         });
 
