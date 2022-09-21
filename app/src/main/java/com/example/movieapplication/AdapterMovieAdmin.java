@@ -110,15 +110,38 @@ public class AdapterMovieAdmin extends RecyclerView.Adapter<AdapterMovieAdmin.Ho
                 .setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (which == 0){
+                        if (which == 0){/*
+                            editMovie(model,holder);*/
+                            Intent intent = new Intent(context, EditMove.class);
+                            intent.putExtra("id", model.id);
+                            intent.putExtra("title", model.title);
+                            intent.putExtra("description", model.description);
+                            intent.putExtra("category", model.category);
+                            intent.putExtra("price", model.price);
+                            intent.putExtra("duration", model.duration);
+
+
+
+                            context.startActivity(intent);
+
 
                         }
                         else if (which==1){
                             deleteMovie(model,holder);
-
                         }
                     }
                 }) .show();
+    }
+
+    private void editMovie(ModelMovie model, HolderMoviesAdmin holder) {
+
+        String movieUrl = model.getUrl();
+        String movieTitle = model.getTitle();
+        String movieId = model.getId();
+
+
+
+
     }
 
     private void deleteMovie(ModelMovie model, HolderMoviesAdmin holder) {

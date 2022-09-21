@@ -16,6 +16,13 @@
         android:theme="@style/Theme.MovieApplication"
         tools:targetApi="31">
         <activity
+            android:name=".EditMove"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DashboardUser00Activity"
             android:exported="false" />
         <activity

@@ -75,8 +75,8 @@ public class MovieAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 validateData();
-                finish();
                 startActivity(new Intent(MovieAddActivity.this, DashboardAdminActivity.class));;
+                finish();
             }
         });
 
